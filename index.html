@@ -732,9 +732,7 @@
     <img id="lightboxImg" src="" alt="Foto ampliada">
   </div>
 
-  <audio id="bgAudio" loop preload="none">
-    <source src="cancao-casamento.mp3" type="audio/mpeg">
-  </audio>
+  <audio id="bgAudio" src="cancao-casamento.mp3" loop preload="none"></audio>
 </div>
 
 <script>
@@ -827,7 +825,7 @@
   // RSVP — grava na base de dados (Google Sheets via Apps Script) e depois abre o WhatsApp
   const WHATSAPP_NUMBER = "258875696973";
   // >>> Cole aqui o URL do Apps Script depois de o publicar (ver PAINEL-LEIA-ME.md) <<<
-  const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycby30GbfQbKZYOZuGFO1a2IpA_NUU0fn5zrbQJXRu13i__vTUcgoAvseKKryQzGLFdbL/exec";
+  const RSVP_ENDPOINT = "COLOCA_AQUI_O_URL_DO_APPS_SCRIPT";
   const statusEl = document.getElementById('rsvpStatus');
 
   function getNomeAtual() {
@@ -901,17 +899,26 @@
   const musicIcon = document.getElementById('musicIcon');
   const musicLabel = document.getElementById('musicLabel');
   let playing = false;
+  audio.addEventListener('error', () => {
+    musicLabel.textContent = "Erro ao carregar";
+  });
   musicBtn.addEventListener('click', () => {
-    if (!audio.src || audio.src === window.location.href) {
-      musicLabel.textContent = "Sem faixa";
+    if (playing) {
+      audio.pause();
+      playing = false;
+      musicBtn.setAttribute('aria-pressed', 'false');
+      musicIcon.textContent = "🔈";
+      musicLabel.textContent = "Música";
       return;
     }
-    if (playing) { audio.pause(); }
-    else { audio.play().catch(()=>{}); }
-    playing = !playing;
-    musicBtn.setAttribute('aria-pressed', String(playing));
-    musicIcon.textContent = playing ? "🔊" : "🔈";
-    musicLabel.textContent = playing ? "A tocar" : "Música";
+    audio.play().then(() => {
+      playing = true;
+      musicBtn.setAttribute('aria-pressed', 'true');
+      musicIcon.textContent = "🔊";
+      musicLabel.textContent = "A tocar";
+    }).catch(() => {
+      musicLabel.textContent = "Toca para ouvir";
+    });
   });
 </script>
 </body>
