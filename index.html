@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>António & Saria — 14 de Setembro, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
 <style>
   :root{
     --cream:#f7f1e4;
@@ -16,6 +16,49 @@
     --terracotta:#b16a45;
     --olive:#5b6b45;
     --line: rgba(168,129,63,0.35);
+    --slate:#66605a;
+    --slate-dark:#4a453f;
+    --white:#ffffff;
+  }
+  .script-name{
+    font-family:'Mrs Saint Delafield', 'Cormorant Garamond', serif;
+    font-style:normal;
+    font-weight:400;
+    line-height:1;
+  }
+  .icon-circle{
+    width:52px;height:52px;
+    border-radius:50%;
+    background:var(--slate-dark);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px;
+    margin:0 auto 14px;
+    box-shadow:0 6px 16px rgba(44,38,32,0.25);
+  }
+  .pill-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    background:var(--olive);
+    color:#fff;
+    text-decoration:none;
+    padding:12px 26px;
+    border-radius:40px;
+    font-size:13px;
+    letter-spacing:0.06em;
+    box-shadow:0 8px 18px rgba(91,107,69,0.28);
+    border:none;
+    cursor:pointer;
+  }
+  .slide-card{
+    background:var(--white);
+    border-radius:26px 26px 0 0;
+    padding:34px 26px 30px;
+    box-shadow:0 -14px 30px rgba(0,0,0,0.12);
+    max-width:360px;
+    margin:0 auto;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -99,13 +142,15 @@
     color:#fff;
   }
   .hero-names{
-    font-size:58px;
-    line-height:1.05;
-    margin:0 0 10px;
+    font-family:'Mrs Saint Delafield', 'Cormorant Garamond', serif;
+    font-style:normal;
+    font-size:74px;
+    line-height:1;
+    margin:0 0 14px;
     color:#fff;
-    text-shadow:0 4px 22px rgba(0,0,0,0.35);
+    text-shadow:0 4px 22px rgba(0,0,0,0.4);
   }
-  .hero-names .amp{color:var(--gold-soft);}
+  .hero-names .amp{color:var(--gold-soft); font-family:'Cormorant Garamond', serif; font-size:0.55em;}
   .hero-date{
     letter-spacing:0.22em;
     font-size:13px;
@@ -243,12 +288,26 @@
   @keyframes fadeUp{from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:translateY(0);}}
 
   /* ---------- PARENTS / NAMES ---------- */
+  #familia{
+    background:var(--slate);
+    color:#fff;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  #familia .icon-circle{
+    background:rgba(255,255,255,0.14);
+    border:1px solid rgba(255,255,255,0.5);
+    box-shadow:none;
+  }
   .blessing{
-    font-size:13px;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-    color:#6b6154;
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    font-size:26px;
+    color:#fff;
     margin-bottom:26px;
+    line-height:1.3;
   }
   .parents{
     display:flex;
@@ -262,29 +321,34 @@
   .parents .side p{
     margin:2px 0;
     font-size:14.5px;
-    color:#463f34;
+    color:rgba(255,255,255,0.88);
   }
   .parents .memoria{
-    color:var(--gold);
+    color:var(--gold-soft);
     font-size:12px;
     font-style:italic;
     margin-top:2px;
   }
-  .divider-vert{width:1px; background:var(--line); align-self:stretch; margin:4px 0;}
+  .divider-vert{width:1px; background:rgba(255,255,255,0.3); align-self:stretch; margin:4px 0;}
   .names-big{
-    font-size:44px;
+    font-family:'Mrs Saint Delafield', 'Cormorant Garamond', serif;
+    font-style:normal;
+    font-size:64px;
+    color:#fff;
     margin:34px 0 6px;
+    line-height:1;
   }
   .invite-line{
     font-size:14px;
-    color:#4a4237;
+    color:rgba(255,255,255,0.85);
     margin-top:24px;
   }
   .guest-name{
     font-family:'Cormorant Garamond', serif;
     font-style:italic;
     font-size:22px;
-    border-bottom:1px solid var(--line);
+    color:#fff;
+    border-bottom:1px solid rgba(255,255,255,0.5);
     display:inline-block;
     padding:6px 30px;
     margin-top:10px;
@@ -292,17 +356,17 @@
     min-width:200px;
     outline:none;
   }
-  .guest-name:focus{border-bottom-color:var(--gold);}
+  .guest-name:focus{border-bottom-color:var(--gold-soft);}
   .guest-name[data-locked="true"]{cursor:default;}
   .guest-name:empty::before{
     content: attr(data-placeholder);
-    color:#a89b86;
+    color:rgba(255,255,255,0.55);
   }
   .guest-hint{
     display:block;
     font-size:11px;
     letter-spacing:0.08em;
-    color:#a89b86;
+    color:rgba(255,255,255,0.6);
     margin-top:8px;
     text-transform:none;
     font-style:normal;
@@ -364,80 +428,118 @@
   }
 
   /* ---------- EVENTS ---------- */
-  #events{background:var(--cream-2);}
+  #events, #events-domingo{
+    background:var(--slate);
+    padding-left:0; padding-right:0;
+  }
+  #events .eyebrow, #events-domingo .eyebrow{color:var(--gold-soft);}
   .cards{
     display:flex;
     flex-direction:column;
-    gap:16px;
-    max-width:420px;
+    gap:22px;
+    max-width:360px;
     margin:26px auto 0;
+    padding:0 20px;
   }
   .card{
-    background:var(--cream);
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:22px 20px;
-    text-align:left;
+    background:var(--white);
+    border:none;
+    border-radius:26px;
+    padding:30px 24px 26px;
+    text-align:center;
+    box-shadow:0 16px 34px rgba(0,0,0,0.18);
   }
   .card .tag{
+    display:none;
+  }
+  .card .icon-label{
     font-size:11px;
     letter-spacing:0.2em;
     text-transform:uppercase;
     color:var(--terracotta);
+    margin-top:2px;
   }
   .card h3{
     font-family:'Cormorant Garamond', serif;
     font-weight:600;
-    font-size:24px;
-    margin:6px 0 12px;
+    font-size:26px;
+    margin:2px 0 18px;
+    color:var(--ink);
   }
   .card .row{
     display:flex;
-    gap:10px;
+    flex-direction:column;
+    align-items:center;
+    gap:2px;
     font-size:14.5px;
     color:#463f34;
-    margin:6px 0;
+    margin:16px 0;
   }
-  .card .row .icon{color:var(--gold); flex-shrink:0;}
-  .card a.map-link{
-    display:inline-block;
-    margin-top:10px;
+  .card .row .icon-circle{
+    width:44px;height:44px;
+    font-size:16px;
+    margin-bottom:8px;
+  }
+  .card a.map-link.pill-btn{
+    display:inline-flex;
+    margin-top:8px;
     font-size:13px;
     letter-spacing:0.05em;
-    color:var(--olive);
-    text-decoration:none;
-    border-bottom:1px solid var(--olive);
+    border:none;
   }
 
   /* ---------- COUNTDOWN ---------- */
-  #countdown{}
+  #countdown{
+    background:var(--slate);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding-left:0; padding-right:0;
+  }
+  #countdown .eyebrow{color:var(--gold-soft);}
   .count-grid{
     display:flex;
     justify-content:center;
-    gap:22px;
+    gap:12px;
     margin-top:24px;
+    padding:0 20px;
   }
   .count-grid div{
-    min-width:60px;
+    min-width:64px;
+    border:1.5px solid var(--ink);
+    border-radius:10px;
+    padding:14px 6px 10px;
+    background:#fff;
   }
   .count-grid .num{
     font-family:'Cormorant Garamond', serif;
-    font-size:38px;
+    font-weight:600;
+    font-size:34px;
     color:var(--ink);
+    line-height:1;
   }
   .count-grid .lbl{
-    font-size:10px;
-    letter-spacing:0.15em;
+    font-size:9.5px;
+    letter-spacing:0.1em;
     text-transform:uppercase;
-    color:var(--gold);
-    margin-top:4px;
+    color:var(--slate);
+    margin-top:6px;
   }
   .count-msg{
-    margin-top:26px;
+    margin-top:30px;
     font-size:14px;
-    color:#4a4237;
+    color:rgba(255,255,255,0.85);
     max-width:320px;
     margin-left:auto;margin-right:auto;
+    padding:0 24px;
+  }
+  .count-heading{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    font-size:30px;
+    color:#fff;
+    margin-top:26px;
   }
 
   /* ---------- NOTES ---------- */
@@ -555,27 +657,29 @@
     object-fit:cover;
     display:block;
   }
-  #noivos{}
+  #noivos{min-height:100vh; display:flex; flex-direction:column; justify-content:center;}
   .noivos-photo{
-    width:100%;
-    max-width:320px;
+    width:240px;
+    height:300px;
     margin:26px auto 0;
-    border-radius:4px;
+    border-radius:50% / 40%;
     overflow:hidden;
-    box-shadow:0 10px 28px rgba(44,38,32,0.18);
+    border:6px solid #fff;
+    box-shadow:0 14px 30px rgba(44,38,32,0.22);
   }
   .noivos-photo img{
     width:100%;
+    height:100%;
     display:block;
     object-fit:cover;
-    max-height:420px;
   }
   .noivos-caption{
-    margin-top:14px;
-    font-size:13px;
-    letter-spacing:0.1em;
-    color:#6b6154;
-    text-transform:uppercase;
+    margin-top:18px;
+    font-family:'Mrs Saint Delafield', 'Cormorant Garamond', serif;
+    font-size:36px;
+    color:var(--ink);
+    text-transform:none;
+    letter-spacing:0;
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -607,7 +711,8 @@
 
   <!-- PARENTS + NAMES -->
   <section id="familia" class="reveal">
-    <p class="blessing">Com a bênção de Deus e de seus pais</p>
+    <div class="icon-circle">&#10084;</div>
+    <p class="blessing">Com a bênção de Deus<br>e de seus pais</p>
     <div class="parents">
       <div class="side">
         <p>Zefanias Aurélio Massinha</p>
@@ -642,18 +747,20 @@
     <div class="eyebrow">Programa do Dia</div>
     <div class="cards">
       <div class="card">
-        <div class="tag">Cerimónia Civil</div>
+        <div class="icon-circle">&#128340;</div>
+        <div class="icon-label">Cerimónia Civil</div>
         <h3>Sábado, 09h00</h3>
-        <div class="row"><span class="icon">&#128197;</span><span>14 de Setembro de 2026</span></div>
-        <div class="row"><span class="icon">&#128205;</span><span>Palácio da Família (Museu)</span></div>
-        <a class="map-link" href="https://maps.google.com/?q=Pal%C3%A1cio+da+Fam%C3%ADlia+Maputo" target="_blank" rel="noopener">Ver localização no mapa →</a>
+        <div class="row"><span class="icon-circle">&#128197;</span><span>14 de Setembro de 2026</span></div>
+        <div class="row"><span class="icon-circle">&#128205;</span><span>Palácio da Família (Museu)</span></div>
+        <a class="map-link pill-btn" href="https://maps.google.com/?q=Pal%C3%A1cio+da+Fam%C3%ADlia+Maputo" target="_blank" rel="noopener">&#9679; Ver no mapa</a>
       </div>
       <div class="card">
-        <div class="tag">Copo de Água</div>
+        <div class="icon-circle">&#127869;</div>
+        <div class="icon-label">Copo de Água</div>
         <h3>Sábado, 13h00</h3>
-        <div class="row"><span class="icon">&#128197;</span><span>14 de Setembro de 2026</span></div>
-        <div class="row"><span class="icon">&#128205;</span><span>Salão do Instituto Industrial de Maputo</span></div>
-        <a class="map-link" href="https://maps.google.com/?q=Instituto+Industrial+de+Maputo" target="_blank" rel="noopener">Ver localização no mapa →</a>
+        <div class="row"><span class="icon-circle">&#128197;</span><span>14 de Setembro de 2026</span></div>
+        <div class="row"><span class="icon-circle">&#128205;</span><span>Salão do Instituto Industrial de Maputo</span></div>
+        <a class="map-link pill-btn" href="https://maps.google.com/?q=Instituto+Industrial+de+Maputo" target="_blank" rel="noopener">&#9679; Ver no mapa</a>
       </div>
     </div>
   </section>
@@ -663,18 +770,20 @@
     <div class="eyebrow">Programação de Domingo</div>
     <div class="cards">
       <div class="card">
-        <div class="tag">Cerimónia Religiosa</div>
+        <div class="icon-circle">&#9962;</div>
+        <div class="icon-label">Cerimónia Religiosa</div>
         <h3>Domingo, 07h00</h3>
-        <div class="row"><span class="icon">&#128197;</span><span>13 de Setembro de 2026</span></div>
-        <div class="row"><span class="icon">&#128205;</span><span>Comunidade Divino Espírito Santo, Bobole</span></div>
-        <a class="map-link" href="https://maps.google.com/?q=Comunidade+Divino+Esp%C3%ADrito+Santo+Bobole" target="_blank" rel="noopener">Ver localização no mapa →</a>
+        <div class="row"><span class="icon-circle">&#128197;</span><span>13 de Setembro de 2026</span></div>
+        <div class="row"><span class="icon-circle">&#128205;</span><span>Comunidade Divino Espírito Santo, Bobole</span></div>
+        <a class="map-link pill-btn" href="https://maps.google.com/?q=Comunidade+Divino+Esp%C3%ADrito+Santo+Bobole" target="_blank" rel="noopener">&#9679; Ver no mapa</a>
       </div>
       <div class="card">
-        <div class="tag">Copo de Água</div>
+        <div class="icon-circle">&#127869;</div>
+        <div class="icon-label">Copo de Água</div>
         <h3>Domingo, 13h00</h3>
-        <div class="row"><span class="icon">&#128197;</span><span>13 de Setembro de 2026</span></div>
-        <div class="row"><span class="icon">&#128205;</span><span>Residência dos noivos — Bairro Xipunganga, Quarteirão 02, Casa N.º 36, Bobole</span></div>
-        <a class="map-link" href="https://maps.google.com/?q=Bairro+Xipunganga+Bobole" target="_blank" rel="noopener">Ver localização no mapa →</a>
+        <div class="row"><span class="icon-circle">&#128197;</span><span>13 de Setembro de 2026</span></div>
+        <div class="row"><span class="icon-circle">&#128205;</span><span>Residência dos noivos — Bairro Xipunganga, Quarteirão 02, Casa N.º 36, Bobole</span></div>
+        <a class="map-link pill-btn" href="https://maps.google.com/?q=Bairro+Xipunganga+Bobole" target="_blank" rel="noopener">&#9679; Ver no mapa</a>
       </div>
     </div>
   </section>
@@ -688,6 +797,7 @@
       <div><div class="num" id="cd-m">00</div><div class="lbl">Min</div></div>
       <div><div class="num" id="cd-s">00</div><div class="lbl">Seg</div></div>
     </div>
+    <p class="count-heading">Só mais alguns dias...</p>
     <p class="count-msg">O tempo está a passar — mal podemos esperar para celebrar convosco este dia tão especial.</p>
   </section>
 
